@@ -42,7 +42,7 @@ defmodule DogStatsd do
   end
 
   def host(dogstatsd) do
-    GenServer.call(dogstatsd, :get_host) || System.get_env("DD_AGENT_ADDR") || @default_host
+    GenServer.call(dogstatsd, :get_host) || System.get_env("DD_AGENT_HOST") || @default_host
   end
 
   def host(dogstatsd, host) do
@@ -50,7 +50,7 @@ defmodule DogStatsd do
   end
 
   def port(dogstatsd) do
-    case GenServer.call(dogstatsd, :get_port) || System.get_env("DD_AGENT_PORT") || @default_port do
+    case GenServer.call(dogstatsd, :get_port) || System.get_env("DD_DOGSTATSD_PORT") || @default_port do
       port when is_binary(port) ->
         String.to_integer(port)
       port ->

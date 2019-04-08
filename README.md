@@ -77,6 +77,13 @@ DogStatsd.event(statsd, "There might be a storm tomorrow", "A friend warned me e
 DogStatsd.event(statsd, "SO MUCH SNOW", "Started yesterday and it won't stop !!", %{alert_type: "error", tags: ["urgent", "endoftheworld"]})
 ```
 
+## Configuration
+
+ENV | Use | Format | Default
+--- | --- | --- | ---
+DD_AGENT_HOST | The datadog-agent host | String | `127.0.0.1`
+DD_DOGSTATSD_PORT| The datadog-agent Dogstatds port | String | `8125`
+
 Credits
 -------
 
