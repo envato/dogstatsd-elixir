@@ -18,7 +18,7 @@ First install the library:
       ```elixir
       def deps do
         [
-          {:dogstatsd, "0.0.4"}
+          {:dogstatsd, git: "https://github.com/envato/dogstatsd-elixir.git", tag: "0.0.4"}
         ]
       end
       ```
