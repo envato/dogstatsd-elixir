@@ -1,5 +1,4 @@
-dogstatsd-elixir
-==============
+# dogstatsd-elixir
 
 A fork of [adamkittelson/dogstatsd-elixir](https://github.com/adamkittelson/dogstatsd-elixir) with improvements and bug fixes.
 
@@ -8,8 +7,7 @@ A client for DogStatsd, an extension of the StatsD metric server for Datadog.
 [![Build Status](https://travis-ci.org/envato/dogstatsd-elixir.svg?branch=master)](https://travis-ci.org/envato/dogstatsd-elixir)
 [![Coverage Status](https://coveralls.io/repos/envato/dogstatsd-elixir/badge.png?branch=master)](https://coveralls.io/r/envato/dogstatsd-elixir?branch=master)
 
-Quick Start Guide
------------------
+## Quick Start Guide
 
 First install the library:
 
@@ -84,8 +82,7 @@ ENV | Use | Format | Default
 DD_AGENT_HOST | The datadog-agent host | String | `127.0.0.1`
 DD_DOGSTATSD_PORT| The datadog-agent Dogstatds port | String | `8125`
 
-Credits
--------
+## Credits
 
 * Based on [adamkittelson/dogstatsd-elixir](https://github.com/adamkittelson/dogstatsd-elixir)
 * dogstatsd-elixir is a port of the [Ruby DogStatsd client](https://github.com/DataDog/dogstatsd-ruby)
