@@ -2,7 +2,9 @@
 
 A fork of [adamkittelson/dogstatsd-elixir](https://github.com/adamkittelson/dogstatsd-elixir) with improvements and bug fixes.
 
-A client for DogStatsd, an extension of the StatsD metric server for Datadog.
+A client for DogStatsD, an extension of the StatsD metric server for Datadog.
+
+It is implemented as GenServer thus can be fitted into a supervision tree.
 
 [![Build Status](https://travis-ci.org/envato/dogstatsd-elixir.svg?branch=master)](https://travis-ci.org/envato/dogstatsd-elixir)
 [![Coverage Status](https://coveralls.io/repos/envato/dogstatsd-elixir/badge.png?branch=master)](https://coveralls.io/r/envato/dogstatsd-elixir?branch=master)
@@ -28,7 +30,6 @@ First install the library:
         [applications: [:dogstatsd]]
       end
       ```
-
 Then start instrumenting your code:
 
 ``` elixir
@@ -37,7 +38,30 @@ require DogStatsd
 
 # Configure DogStatsd.
 {:ok, statsd} = DogStatsd.new("localhost", 8125)
+```
 
+Alternatively it can be placed in Application supervision tree:
+
+```elixir
+defmodule LoremIpsum.Application do
+  use Application
+
+  def start(_type, _args) do
+    import Supervisor.Spec
+
+    children = [
+      worker(DogStatsd, [host: "localhost", port: 8125])
+    ]
+
+    opts = [strategy: :one_for_one, name: LoremIpsum.Supervisor]
+    Supervisor.start_link(children, opts)
+  end
+end
+```
+
+Below are some examples how it is used:
+
+```elixir
 # Increment a counter.
 DogStatsd.increment(statsd, "page.views")
 
