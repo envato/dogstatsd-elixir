@@ -1,11 +1,12 @@
-
 dogstatsd-elixir
 ==============
 
+A fork of [adamkittelson/dogstatsd-elixir](https://github.com/adamkittelson/dogstatsd-elixir) with improvements and bug fixes.
+
 A client for DogStatsd, an extension of the StatsD metric server for Datadog.
 
-[![Build Status](https://travis-ci.org/adamkittelson/dogstatsd-elixir.svg?branch=master)](https://travis-ci.org/adamkittelson/dogstatsd-elixir)
-[![Coverage Status](https://coveralls.io/repos/adamkittelson/dogstatsd-elixir/badge.png?branch=master)](https://coveralls.io/r/adamkittelson/dogstatsd-elixir?branch=master)
+[![Build Status](https://travis-ci.org/envato/dogstatsd-elixir.svg?branch=master)](https://travis-ci.org/envato/dogstatsd-elixir)
+[![Coverage Status](https://coveralls.io/repos/envato/dogstatsd-elixir/badge.png?branch=master)](https://coveralls.io/r/envato/dogstatsd-elixir?branch=master)
 
 Quick Start Guide
 -----------------
@@ -17,7 +18,7 @@ First install the library:
       ```elixir
       def deps do
         [
-          {:dogstatsd, "0.0.3"}
+          {:dogstatsd, "0.0.4"}
         ]
       end
       ```
@@ -76,22 +77,8 @@ DogStatsd.event(statsd, "There might be a storm tomorrow", "A friend warned me e
 DogStatsd.event(statsd, "SO MUCH SNOW", "Started yesterday and it won't stop !!", %{alert_type: "error", tags: ["urgent", "endoftheworld"]})
 ```
 
-
-Feedback
---------
-
-To suggest a feature, report a bug, or general discussion, head over
-[here](http://github.com/adamkittelson/dogstatsd-elixir/issues/).
-
-
-Change Log
-----------
-
-- 0.0.1
-    - Initial release.
-
-
 Credits
 -------
 
-dogstatsd-elixir is a port of the [Ruby DogStatsd client](https://github.com/DataDog/dogstatsd-ruby)
+* Based on [adamkittelson/dogstatsd-elixir](https://github.com/adamkittelson/dogstatsd-elixir)
+* dogstatsd-elixir is a port of the [Ruby DogStatsd client](https://github.com/DataDog/dogstatsd-ruby)
